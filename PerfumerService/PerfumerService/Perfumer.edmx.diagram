@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9fcf4691c3dd4588a8d20ec8842050ae" Name="Diagram1">
+        <EntityTypeShape EntityType="PerfumerModel.Good" Width="1.5" PointX="9.125" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerfumerModel.GoodsCategory" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerfumerModel.ImageJournal" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerfumerModel.IssuePoint" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerfumerModel.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerfumerModel.OrderGood" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerfumerModel.Role" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerfumerModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PerfumerModel.User" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="PerfumerModel.FK__Goods__GoodsCate__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="PerfumerModel.FK__Goods__ImageId__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="PerfumerModel.FK__OrderGood__Goods__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="PerfumerModel.FK__Order__IssuePoin__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="PerfumerModel.FK__Order__UserId__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="PerfumerModel.FK__OrderGood__Order__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="PerfumerModel.FK__User__RoleId__25869641" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
