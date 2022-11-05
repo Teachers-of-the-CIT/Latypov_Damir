@@ -95,7 +95,7 @@
                 Margin="10"
                 Width="350"
                 Height="25"
-                Content="Войти в систему"
+                Content="Вход"
                 Click="TryLoginButton_OnClick"
             />
             <Button
@@ -113,7 +113,7 @@
                 Margin="1"
                 Width="350"
                 Height="25"
-                Content="Продолжить без регистрации"
+                Content="Новый клиент"
                 Click="LoginWithoutCredentialsButton_OnClick"
             />
         </StackPanel>
@@ -125,7 +125,7 @@
                 Orientation="Horizontal"
                 HorizontalAlignment="Center"
             >
-                <TextBlock Style="{StaticResource PrimaryText24Px}" Margin="10">Планета Парфюмерии Z</TextBlock>
+                <TextBlock Style="{StaticResource PrimaryText24Px}" Margin="10">Магазин прафюмерии</TextBlock>
                 <Image Source="../Resources/logo.png" Height="50"></Image>
             </StackPanel>
         </DockPanel>

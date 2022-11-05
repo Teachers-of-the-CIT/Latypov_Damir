@@ -143,7 +143,7 @@
                 Orientation="Horizontal"
                 HorizontalAlignment="Center"
             >
-                <TextBlock Style="{StaticResource PrimaryText24Px}" Margin="10">Планета Парфюмерии Z</TextBlock>
+                <TextBlock Style="{StaticResource PrimaryText24Px}" Margin="10">Магазин Парфюмерии</TextBlock>
                 <Image Source="../Resources/logo.png" Height="50"></Image>
             </StackPanel>
         </DockPanel>

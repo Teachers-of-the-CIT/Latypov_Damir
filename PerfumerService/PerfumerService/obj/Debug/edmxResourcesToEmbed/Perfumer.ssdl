@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PerfumerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Goods">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sale" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GoodsCategoryId" Type="int" />
+    <Property Name="ImageId" Type="int" />
+  </EntityType>
+  <EntityType Name="GoodsCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ImageJournal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IssuePoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Index" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Town" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Stree" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="House" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateOrder" Type="datetime" Nullable="false" />
+    <Property Name="DeliveryDate" Type="datetime" Nullable="false" />
+    <Property Name="IssuePointId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ReceiveCode" Type="int" />
+    <Property Name="Status" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="OrderGoods">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GoodsId" Type="int" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Login" Type="nvarchar" MaxLength="100" />
+    <Property Name="Passowrd" Type="nvarchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+  </EntityType>
+  <Association Name="FK__Goods__GoodsCate__2E1BDC42">
+    <End Role="GoodsCategory" Type="Self.GoodsCategory" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodsCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Goods">
+        <PropertyRef Name="GoodsCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Goods__ImageId__2F10007B">
+    <End Role="ImageJournal" Type="Self.ImageJournal" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageJournal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Goods">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__IssuePoin__31EC6D26">
+    <End Role="IssuePoint" Type="Self.IssuePoint" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IssuePoint">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="IssuePointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__UserId__32E0915F">
+    <End Role="User" Type="Self.User" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderGood__Goods__35BCFE0A">
+    <End Role="Goods" Type="Self.Goods" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderGoods" Type="Self.OrderGoods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Goods">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderGoods">
+        <PropertyRef Name="GoodsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderGood__Order__36B12243">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderGoods" Type="Self.OrderGoods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderGoods">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__RoleId__25869641">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PerfumerModelStoreContainer">
+    <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoodsCategory" EntityType="Self.GoodsCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageJournal" EntityType="Self.ImageJournal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IssuePoint" EntityType="Self.IssuePoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderGoods" EntityType="Self.OrderGoods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Goods__GoodsCate__2E1BDC42" Association="Self.FK__Goods__GoodsCate__2E1BDC42">
+      <End Role="GoodsCategory" EntitySet="GoodsCategory" />
+      <End Role="Goods" EntitySet="Goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Goods__ImageId__2F10007B" Association="Self.FK__Goods__ImageId__2F10007B">
+      <End Role="ImageJournal" EntitySet="ImageJournal" />
+      <End Role="Goods" EntitySet="Goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__IssuePoin__31EC6D26" Association="Self.FK__Order__IssuePoin__31EC6D26">
+      <End Role="IssuePoint" EntitySet="IssuePoint" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__UserId__32E0915F" Association="Self.FK__Order__UserId__32E0915F">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderGood__Goods__35BCFE0A" Association="Self.FK__OrderGood__Goods__35BCFE0A">
+      <End Role="Goods" EntitySet="Goods" />
+      <End Role="OrderGoods" EntitySet="OrderGoods" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderGood__Order__36B12243" Association="Self.FK__OrderGood__Order__36B12243">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderGoods" EntitySet="OrderGoods" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__RoleId__25869641" Association="Self.FK__User__RoleId__25869641">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

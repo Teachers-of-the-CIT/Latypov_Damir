@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PerfumerService.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,9 @@ namespace PerfumerService
     {
         public MainWindow()
         {
+            new LoginWindow().Show();
             InitializeComponent();
+            this.Close();
         }
     }
 }
