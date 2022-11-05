@@ -12,7 +12,7 @@ namespace PerfumerService
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Role : Entity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role()

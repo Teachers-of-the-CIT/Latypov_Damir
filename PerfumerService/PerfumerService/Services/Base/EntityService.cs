@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace PerfumerService.Services.Base
 {
-    public abstract class EntityService<TEntity> where TEntity : Entity
+    public abstract class EntityService<TEntity> where TEntity : class, Entity
     {
         protected readonly PerfumerEntities _context;
         protected readonly DbSet<TEntity> _dbSet;

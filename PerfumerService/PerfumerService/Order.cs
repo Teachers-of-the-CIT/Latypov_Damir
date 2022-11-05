@@ -12,7 +12,7 @@ namespace PerfumerService
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class Order : Entity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()

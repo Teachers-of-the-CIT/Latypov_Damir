@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -192,6 +193,17 @@
       <DependentUpon>Perfumer.edmx</DependentUpon>
       <LastGenOutput>Perfumer.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\А112Т4.jpg" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\J432E4.jpg" />
+    <None Include="Resources\icon.ico" />
+    <None Include="Resources\G832G6.jpg" />
+    <None Include="Resources\F893T5.jpg" />
+    <None Include="Resources\F346G5.jpg" />
+    <None Include="Resources\E530Y6.jpg" />
+    <None Include="Resources\E245R5.jpg" />
+    <None Include="Resources\D378D3.jpg" />
+    <None Include="Resources\D344Y7.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

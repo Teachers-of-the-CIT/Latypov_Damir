@@ -12,7 +12,7 @@ namespace PerfumerService
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderGood
+    public partial class OrderGood : Entity
     {
         public int Id { get; set; }
         public Nullable<int> GoodsId { get; set; }

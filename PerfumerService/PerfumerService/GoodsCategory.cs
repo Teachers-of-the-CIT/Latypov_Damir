@@ -12,7 +12,7 @@ namespace PerfumerService
     using System;
     using System.Collections.Generic;
     
-    public partial class GoodsCategory
+    public partial class GoodsCategory : Entity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GoodsCategory()
